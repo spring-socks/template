@@ -43,7 +43,7 @@ engine:
         with: "#artifactId.replace('-api', '')"
       - text: "8080"
         with: "#serverPort"
-      - text: "5432"
+      - text: "15432"
         with: "#dbPort"
   - include: [ '**/*.java' ]
     chain:
