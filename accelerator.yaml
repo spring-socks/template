@@ -1,0 +1,46 @@
+accelerator:
+  displayName: Spring Socks Template
+  description: Spring Boot Template Project for Spring Socks
+  iconUrl: https://avatars.githubusercontent.com/u/111352506?s=200&v=4
+  tags:
+  - java
+  - spring
+
+  options:
+  - name: groupId
+    label: Group ID
+    description: The group Id
+    dataType: string
+    defaultValue: lol.maki.socks
+  - name: pkgName
+    label: Package
+    description: The name of the package
+    dataType: string
+    defaultValue: lol.maki.socks
+
+engine:
+  merge:
+  - include: [ "**/*" ]
+    exclude: [ "pom.xml", "**/*.java" ]
+  - include: [ "pom.xml" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: com.example
+        with: "#groupId"
+      - text: demo
+        with: "#artifactId"
+  - include: [ '**/*.java' ]
+    chain:
+    - type: OpenRewriteRecipe
+      recipe: org.openrewrite.java.ChangePackage
+      options:
+        oldPackageName: "'com.example.demo'"
+        newPackageName: "#pkgName"
+        recursive: true
+    - type: ReplaceText
+      substitutions:
+      - text: Demo
+        with: "#kebab2Pascal(#artifactId)"
+    - type: RewritePath
+      rewriteTo: "#folder + #filename.replace('Demo', #kebab2Pascal(#artifactId))"
