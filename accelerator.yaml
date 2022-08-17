@@ -20,13 +20,13 @@ accelerator:
   - name: serverPort
     label: Server Port
     description: Server Port
-    dataType: number
-    defaultValue: 8080
+    dataType: string
+    defaultValue: "8080"
   - name: dbPort
-    label: db Port
+    label: DB Port
     description: Port Number of the Local PostgreSQL
-    dataType: number
-    defaultValue: 5432
+    dataType: string
+    defaultValue: "5432"
 engine:
   merge:
   - include: [ "**/*" ]
