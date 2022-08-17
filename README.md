@@ -5,7 +5,7 @@ demo
 
 Run postgresql
 
-```yaml
+```
 docker-compose up
 ```
 
