@@ -51,14 +51,6 @@ engine:
         with: "#serverPort"
       - text: "15432"
         with: "#dbPort"
-  - include: [ 'pom.xml' ]
-    chain:
-    - type: OpenRewriteRecipe
-      recipe: org.openrewrite.maven.ChangePropertyValue
-      options:
-        key: java.version
-        newValue: "#javaVersion"
-        addIfMissing: false
   - include: [ '**/*.java' ]
     chain:
     - type: OpenRewriteRecipe
