@@ -17,6 +17,11 @@ accelerator:
     description: The name of the package
     dataType: string
     defaultValue: lol.maki.socks
+  - name: javaVersion
+    label: Java Version
+    description: Java Version
+    dataType: string
+    defaultValue: "17"
   - name: serverPort
     label: Server Port
     description: Server Port
@@ -46,6 +51,14 @@ engine:
         with: "#serverPort"
       - text: "15432"
         with: "#dbPort"
+  - include: [ 'pom.xml' ]
+    chain:
+    - type: OpenRewriteRecipe
+      recipe: org.openrewrite.maven.ChangePropertyValue
+      options:
+        key: java.version
+        newValue: "#javaVersion"
+        addIfMissing: false
   - include: [ '**/*.java' ]
     chain:
     - type: OpenRewriteRecipe
