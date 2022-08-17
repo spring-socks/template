@@ -1,0 +1,14 @@
+servers:
+- description: Local
+  url: 'http://localhost:8080'
+components:
+  schemas: { }
+info:
+  contact: { }
+  description: demo
+  license:
+    name: Apache 2.0
+  title: 'Spring Socks: demo'
+  version: 0.0.1-SNAPSHOT
+openapi: 3.0.1
+paths: { }

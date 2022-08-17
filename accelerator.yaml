@@ -17,12 +17,21 @@ accelerator:
     description: The name of the package
     dataType: string
     defaultValue: lol.maki.socks
-
+  - name: serverPort
+    label: Server Port
+    description: Server Port
+    dataType: number
+    defaultValue: 8080
+  - name: dbPort
+    label: db Port
+    description: Port Number of the Local PostgreSQL
+    dataType: number
+    defaultValue: 5432
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "pom.xml", "**/*.java", "src/main/resources/application.properties", "docker-compose.yaml" ]
-  - include: [ "pom.xml", "src/main/resources/application.properties", "docker-compose.yaml" ]
+    exclude: [ "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
+  - include: [ "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
     chain:
     - type: ReplaceText
       substitutions:
@@ -32,6 +41,10 @@ engine:
         with: "#artifactId"
       - text: dbname
         with: "#artifactId.replace('-api', '')"
+      - text: "8080"
+        with: "#serverPort"
+      - text: "5432"
+        with: "#dbPort"
   - include: [ '**/*.java' ]
     chain:
     - type: OpenRewriteRecipe
