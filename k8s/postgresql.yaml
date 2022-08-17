@@ -94,4 +94,4 @@ stringData:
   port: "5432"
   username: socks
   password: socks
-  database: demo
+  database: dbname
