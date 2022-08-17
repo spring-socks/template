@@ -51,6 +51,8 @@ engine:
         with: "#serverPort"
       - text: "15432"
         with: "#dbPort"
+      - text: "<java.version>17</java.version>"
+        with: "'<java.version>' + #javaVersion + '</java.version>'"
   - include: [ '**/*.java' ]
     chain:
     - type: OpenRewriteRecipe
