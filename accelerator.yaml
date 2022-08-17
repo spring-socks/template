@@ -36,23 +36,25 @@ accelerator:
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "README.md", "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
-  - include: [ "README.md", "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
+    exclude: [ "README.md", "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml", "k8s/*" ]
+  - include: [ "README.md", "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml", "k8s/*" ]
     chain:
     - type: ReplaceText
       substitutions:
       - text: com.example
         with: "#groupId"
-      - text: demo
-        with: "#artifactId"
+      - text: demo-db
+        with: "#artifactId.replace('-api', '') + '-db'"
       - text: dbname
         with: "#artifactId.replace('-api', '')"
+      - text: demo
+        with: "#artifactId"
       - text: "8080"
         with: "#serverPort"
       - text: "15432"
         with: "#dbPort"
-      - text: "<java.version>17</java.version>"
-        with: "'<java.version>' + #javaVersion + '</java.version>'"
+      - text: "17"
+        with: "#javaVersion"
   - include: [ '**/*.java' ]
     chain:
     - type: OpenRewriteRecipe

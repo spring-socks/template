@@ -1,6 +1,6 @@
 version: "2"
 services:
-  catalog-db:
+  demo-db:
     image: bitnami/postgresql:14
     ports:
     - "15432:5432"
