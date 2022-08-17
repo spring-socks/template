@@ -21,8 +21,8 @@ accelerator:
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "pom.xml", "**/*.java" ]
-  - include: [ "pom.xml" ]
+    exclude: [ "pom.xml", "**/*.java", "src/main/resources/application.properties", "docker-compose.yaml" ]
+  - include: [ "pom.xml", "src/main/resources/application.properties", "docker-compose.yaml" ]
     chain:
     - type: ReplaceText
       substitutions:
@@ -30,6 +30,8 @@ engine:
         with: "#groupId"
       - text: demo
         with: "#artifactId"
+      - text: dbname
+        with: "#artifactId.replace('-api', '')"
   - include: [ '**/*.java' ]
     chain:
     - type: OpenRewriteRecipe
