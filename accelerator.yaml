@@ -49,6 +49,8 @@ engine:
         with: "#artifactId.replace('-api', '')"
       - text: demo
         with: "#artifactId"
+      - text: spring-socks/template
+        with: "'spring-socks/' + #artifactId"
       - text: "8080"
         with: "#serverPort"
       - text: "15432"

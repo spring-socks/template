@@ -1,6 +1,8 @@
 # demo
 demo
 
+[![CI](https://github.com/spring-socks/template/actions/workflows/ci.yaml/badge.svg)](https://github.com/spring-socks/template/actions/workflows/ci.yaml)
+
 ## How to run locally
 
 Run postgresql
@@ -17,5 +19,5 @@ Run the app
 
 ## Open API Doc
 
-* [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/spring-socks/demo/main/src/main/resources/static/openapi/doc.yml)
-* [ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/spring-socks/demo/main/src/main/resources/static/openapi/doc.yml)
+* [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/spring-socks/template/main/src/main/resources/static/openapi/doc.yml)
+* [ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/spring-socks/template/main/src/main/resources/static/openapi/doc.yml)
