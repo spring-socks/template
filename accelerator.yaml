@@ -27,11 +27,12 @@ accelerator:
     description: Port Number of the Local PostgreSQL
     dataType: string
     defaultValue: "5432"
+
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
-  - include: [ "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
+    exclude: [ "README.md", "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
+  - include: [ "README.md", "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml" ]
     chain:
     - type: ReplaceText
       substitutions:
