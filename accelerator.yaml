@@ -36,8 +36,8 @@ accelerator:
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "README.md", "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml", "k8s/*" ]
-  - include: [ "README.md", "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml", "k8s/*" ]
+    exclude: [ "README.md", "pom.xml", "**/*.java", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml", "k8s/*", "backstage/*", ".github/workflows/ci.yaml" ]
+  - include: [ "README.md", "pom.xml", "src/main/resources/application.properties", "src/main/resources/static/openapi/doc.yml", "docker-compose.yaml", "k8s/*", "backstage/*", ".github/workflows/ci.yaml" ]
     chain:
     - type: ReplaceText
       substitutions:
