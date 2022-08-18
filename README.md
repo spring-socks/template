@@ -14,6 +14,11 @@ docker-compose up
 Run the app
 
 ```
+# at the first time 
+git init
+git add -A
+git commit -m "Initial commit"
+
 ./mvnw spring-boot:run
 ```
 
